@@ -25,9 +25,10 @@ tmux, neovim could still run universally.
 - Brave
 - Obsidian
 - Spotify
+- Discord
 
 # Window Manager (Universal?)
-- I think Fedora also useaa
+- I think Fedora also use x11?
 
 # Terminal Setup (Wezterm, Alacritty, Kitty)
 - Oh my zsh

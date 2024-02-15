@@ -40,3 +40,9 @@ tmux, neovim could still run universally.
 # Resources
 https://opensource.com/article/18/3/manage-workstation-ansible
 https://fedoramagazine.org/using-ansible-setup-workstation/
+
+# Chat GPT
+[https://chat.openai.com/share/e7956d20-e60d-4e80-8d65-751cc6beceae]
+
+A large portion of this project was made by Chat GPT. 
+

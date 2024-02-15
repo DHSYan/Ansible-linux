@@ -8,7 +8,7 @@
 - name: Install fedora-workstation-repositories
   dnf:
     name: fedora-workstation-repositories
-    state: present
+    state: latest
 
 # Flatpak and Discord
 - name: Install Flatpak
@@ -42,7 +42,7 @@
 - name: Install Flathub Packages that runs on both Architecture
   community.general.flatpak:
     name: "{{ item }}"
-    state: latest
+    state: present
     remote: flathub
   loop: "{{ flathub_packages }}"
 

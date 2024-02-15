@@ -25,13 +25,21 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# - name: Install Discord via Flatpak
-#   community.general.flatpak:
-#     name: com.discordapp.Discord
-#     state: present
-#     remote: flathub
+- name: Install Discord via Flatpak
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+    remote: flathub
+  when: ansible_architecture == "x86_64"
 
-- name: Install Flathub Packages
+- name: Install Spotify via Flatpak if x86
+  community.general.flatpak:
+    name: com.spotify.Client
+    state: present
+    remote: flathub
+  when: ansible_architecture == "x86_64"
+
+- name: Install Flathub Packages that runs on both Architecture
   community.general.flatpak:
     name: "{{ flathub-packages }}"
     state: latest

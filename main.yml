@@ -1,6 +1,7 @@
 ---
 - name: Fedora Setup With Sway Wayland
   hosts: all
+  gather_facts: yes
   become: yes
   vars_files:
     - vars/main.yml

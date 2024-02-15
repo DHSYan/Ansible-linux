@@ -2,11 +2,8 @@
 packages:
   - chromium #Google Chrome Stable Don't really want to work on fedora
   - flameshot
-  - spotify
   - stow
-  - ansible
   - tmux
-  - wezterm
   - feh
   - sway
   - zsh
@@ -23,4 +20,5 @@ neovim_dependencies:
 
 flathub-packages:
   - com.brave.Browser
+  - org.wezfurlong.wezterm
 

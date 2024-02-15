@@ -5,9 +5,6 @@
     name: fedora-workstation-repositories
     state: present
 
-- name: Enable Google Chrome repository
-  command: dnf config-manager --set-enabled google-chrome
-
 # Flatpak and Discord
 - name: Install Flatpak
   dnf:

@@ -5,12 +5,15 @@
   vars_files:
     - vars/main.yml
   tasks:
-    - import_tasks: tasks/setup_packages.yml
-    - import_tasks: tasks/compile_neovim.yml
-    - import_tasks: tasks/clone_dotfiles.yml
-    - import_tasks: tasks/configure_sway.yml
-    - import_tasks: tasks/setup_keyboard_layout.yml
-    - import_tasks: tasks/install_ohmyzsh.yml
+    - import_tasks: tasks/setup-packages.yml
+    - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/install_neovim.yml
+    - import_tasks: tasks/setup-sway-i3.yml
+    - import_tasks: tasks/setup-keyboard.yml
+    - import_tasks: tasks/zsh.yml
   handlers:
     - import_tasks: handlers/main.yml
+
+
+
 

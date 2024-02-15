@@ -19,7 +19,7 @@
 
 - name: Install Discord via Flatpak
   community.general.flatpak:
-    name: discord
+    name: com.discordapp.Discord
     state: present
     remote: flathub
 

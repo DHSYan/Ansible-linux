@@ -1,7 +1,6 @@
 ---
 packages:
   - chromium #Google Chrome Stable Don't really want to work on fedora
-  - discord
   - brave-browser
   - flameshot
   - spotify

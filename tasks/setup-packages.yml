@@ -29,7 +29,7 @@
     remote: flathub
 
 
- name: Install required packages
+- name: Install required packages
   dnf:
     name: "{{ packages }}"
     state: latest

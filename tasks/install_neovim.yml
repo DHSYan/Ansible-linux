@@ -1,0 +1,24 @@
+---
+- name: Compile and install Neovim from source
+  block:
+    - name: Clone Neovim repo
+      ansible.builtin.git:
+        repo: 'https://github.com/neovim/neovim.git'
+        dest: '/tmp/neovim'
+        clone: yes
+        update: yes
+
+    - name: Build Neovim
+      ansible.builtin.shell: |
+        cd /tmp/neovim
+        make CMAKE_BUILD_TYPE=Release
+      args:
+        creates: "/tmp/neovim/build/bin/nvim"
+
+    - name: Install Neovim
+      ansible.builtin.shell: |
+        cd /tmp/neovim
+        make install
+      args:
+        creates: "/usr/local/bin/nvim"
+

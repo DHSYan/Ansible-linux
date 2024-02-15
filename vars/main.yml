@@ -1,0 +1,24 @@
+---
+packages:
+  - google-chrome
+  - discord
+  - brave-browser
+  - flameshot
+  - spotify
+  - stow
+  - ansible
+  - tmux
+  - wezterm
+  - feh
+  - sway
+  - zsh
+
+neovim_dependencies:
+  - ninja-build
+  - cmake
+  - gcc
+  - make
+  - unzip
+  - gettext
+  - curl
+

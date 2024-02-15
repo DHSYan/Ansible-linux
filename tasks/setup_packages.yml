@@ -1,0 +1,11 @@
+---
+- name: Install required packages
+  dnf:
+    name: "{{ packages }}"
+    state: latest
+
+- name: Install Neovim dependencies
+  dnf:
+    name: "{{ neovim_dependencies }}"
+    state: latest
+

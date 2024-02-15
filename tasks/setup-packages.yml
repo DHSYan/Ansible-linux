@@ -11,14 +11,14 @@
     name: flatpak
     state: present
 
-- name: wayland flatpak opt-in Discord
-  command: flatpak override --user --socket=wayland com.discordapp.Discord
+# - name: wayland flatpak opt-in Discord
+#   command: flatpak override --user --socket=wayland com.discordapp.Discord
 
 - name: Add the Flathub repository
   flatpak_remote:
     name: flathub
     state: present
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
 - name: Install Discord via Flatpak
   community.general.flatpak:
@@ -36,4 +36,3 @@
   dnf:
     name: "{{ neovim_dependencies }}"
     state: latest
-

@@ -41,9 +41,10 @@
 
 - name: Install Flathub Packages that runs on both Architecture
   community.general.flatpak:
-    name: "{{ flathub-packages }}"
+    name: "{{ item }}"
     state: latest
     remote: flathub
+  loop: "{{ flathub_packages }}"
 
 
 - name: Install required packages

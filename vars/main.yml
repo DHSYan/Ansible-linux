@@ -18,7 +18,7 @@ neovim_dependencies:
   - gettext
   - curl
 
-flathub-packages:
+flathub_packages:
   - com.brave.Browser
   - org.wezfurlong.wezterm
 

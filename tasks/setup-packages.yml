@@ -20,11 +20,11 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install Discord via Flatpak
-  community.general.flatpak:
-    name: com.discordapp.Discord
-    state: present
-    remote: flathub
+# - name: Install Discord via Flatpak
+#   community.general.flatpak:
+#     name: com.discordapp.Discord
+#     state: present
+#     remote: flathub
 
 
 - name: Install required packages

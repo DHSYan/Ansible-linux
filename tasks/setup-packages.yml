@@ -11,6 +11,9 @@
     name: flatpak
     state: present
 
+- name: wayland flatpak opt-in Discord
+  command: flatpak override --user --socket=wayland com.discordapp.Discord
+
 - name: Add the Flathub repository
   flatpak_remote:
     name: flathub

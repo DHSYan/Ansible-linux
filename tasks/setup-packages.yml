@@ -7,8 +7,6 @@
 
 - name: Enable Google Chrome repository
   command: dnf config-manager --set-enabled google-chrome
-  args:
-    warn: false 
 
 # Flatpak and Discord
 - name: Install Flatpak

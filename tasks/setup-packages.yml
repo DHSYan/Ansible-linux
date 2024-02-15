@@ -1,5 +1,35 @@
 ---
-- name: Install required packages
+# To get Google Working
+- name: Install fedora-workstation-repositories
+  dnf:
+    name: fedora-workstation-repositories
+    state: present
+
+- name: Enable Google Chrome repository
+  command: dnf config-manager --set-enabled google-chrome
+  args:
+    warn: false 
+
+# Flatpak and Discord
+- name: Install Flatpak
+  dnf:
+    name: flatpak
+    state: present
+
+- name: Add the Flathub repository
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Install Discord via Flatpak
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+    remote: flathub
+
+
+ name: Install required packages
   dnf:
     name: "{{ packages }}"
     state: latest

@@ -10,6 +10,13 @@ tmux, neovim could still run universally.
 1. Install Ansible
 2. Have Git (to clone this repo)
 
+# Usage
+
+```
+$ ansible-galaxy install -r requirements.yml
+$ ansible-playbook main.yml
+```
+
 # Dotfiles (Universal)
 - Neovim
 - zsh

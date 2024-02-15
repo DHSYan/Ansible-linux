@@ -1,7 +1,6 @@
 ---
 packages:
   - chromium #Google Chrome Stable Don't really want to work on fedora
-  - brave-browser
   - flameshot
   - spotify
   - stow
@@ -21,4 +20,7 @@ neovim_dependencies:
   - unzip
   - gettext
   - curl
+
+flathub-packages:
+  - com.brave.Browser
 

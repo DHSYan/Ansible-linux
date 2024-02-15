@@ -1,4 +1,9 @@
 ---
+- name: Update all packages to the latest version
+  dnf:
+    name: "*"
+    state: latest
+
 # To get Google Working
 - name: Install fedora-workstation-repositories
   dnf:
@@ -9,7 +14,7 @@
 - name: Install Flatpak
   dnf:
     name: flatpak
-    state: present
+    state: latest
 
 # - name: wayland flatpak opt-in Discord
 #   command: flatpak override --user --socket=wayland com.discordapp.Discord
@@ -25,6 +30,12 @@
 #     name: com.discordapp.Discord
 #     state: present
 #     remote: flathub
+
+- name: Install Flathub Packages
+  community.general.flatpak:
+    name: "{{ flathub-packages }}"
+    state: latest
+    remote: flathub
 
 
 - name: Install required packages

@@ -6,6 +6,11 @@
     clone: yes
     update: yes
 
+- name: make sure .ssh folder exist
+  ansible.builtin.file:
+    path: "/home/tzen/.ssh"
+    state: directory
+
 - name: Setup my SSH Private
   ansible.builtin.copy:
     dest: "/home/tzen/.ssh/id_rsa"

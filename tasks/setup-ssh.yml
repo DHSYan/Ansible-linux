@@ -29,3 +29,8 @@
     dest: "/home/tzen/.ssh/config"
     state: link
 
+
+- name: change the github .dotfiles to use SSH
+  ansible.builtin.shell:
+    cmd: "git remote set-url origin git@github.com:DHSYan/.dotfiles.git"
+    chdir: "/home/tzen/.dotfiles"

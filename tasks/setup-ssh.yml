@@ -1,0 +1,15 @@
+---
+- name: clone my .dotfiles to get ssh keys
+  ansible.builtin.git:
+    repo: 'https://github.com/DHSYan/.dotfiles.git'
+    dest: '~/.dotfiles'
+    clone: yes
+    update: yes
+
+- name: Setup my SSH Private
+  ansible.builtin.copy:
+    dest: "~/.ssh/id_rsa"
+    content: "{{ lookup('ansible.builtin.file', '~/.dotfiles/ssh/keys.secret', decrypt=true) }}"
+    # mode: '0600'
+  become: true
+

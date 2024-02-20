@@ -1,2 +1,8 @@
 ---
-- name: dotfile setup
+- name: Clone my Dotfiles
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: '/tmp/neovim'
+    clone: yes
+    update: yes
+

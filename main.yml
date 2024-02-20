@@ -7,8 +7,9 @@
     - vars/main.yml
   tasks:
     - import_tasks: tasks/setup-packages.yml
-    # - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/install_neovim.yml
+    - import_tasks: tasks/setup-ssh.yml
+    # - import_tasks: tasks/dotfiles.yml
     # - import_tasks: tasks/setup-sway-i3.yml
     # - import_tasks: tasks/setup-keyboard.yml
     # - import_tasks: tasks/zsh.yml

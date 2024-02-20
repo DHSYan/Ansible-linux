@@ -8,6 +8,7 @@ packages:
   - sway
   - zsh
   - ripgrep
+  - Obsidian # Need To see where it's avaliable
 
 neovim_dependencies:
   - ninja-build

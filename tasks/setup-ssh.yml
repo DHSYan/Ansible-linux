@@ -15,7 +15,6 @@
   ansible.builtin.copy:
     dest: "/home/tzen/.ssh/id_rsa"
     content: "{{ lookup('ansible.builtin.file', '/home/tzen/.dotfiles/ssh/keys.secret', decrypt=true) }}"
-    mode: '0600'
   become: true
 
 - name: Setup my SSH Public

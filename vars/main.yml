@@ -8,7 +8,6 @@ packages:
   - sway
   - zsh
   - ripgrep
-  - Obsidian # Need To see where it's avaliable
 
 neovim_dependencies:
   - ninja-build
@@ -22,4 +21,5 @@ neovim_dependencies:
 flathub_packages:
   - com.brave.Browser
   - org.wezfurlong.wezterm
+  - md.obsidian.Obsidian
 

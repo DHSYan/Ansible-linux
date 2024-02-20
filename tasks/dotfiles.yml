@@ -1,8 +1,13 @@
 ---
-- name: Clone my Dotfiles
-  ansible.builtin.git:
-    repo: 'https://github.com/neovim/neovim.git'
-    dest: '/tmp/neovim'
-    clone: yes
-    update: yes
+- name: Setup Git config
+  ansible.builtin.file:
+    src: "/home/tzen/.dotfiles/Git/.gitconfig"
+    dest: "/home/tzen/.gitconfig"
+    state: link
+
+- name: Setup Git Ignore_global
+  ansible.builtin.file:
+    src: "/home/tzen/.dotfiles/Git/.gitignore_global"
+    dest: "/home/tzen/.gitignore_global"
+    state: link
 

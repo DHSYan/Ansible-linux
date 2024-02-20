@@ -11,7 +11,7 @@
     - name: Build Neovim
       ansible.builtin.shell: |
         cd /tmp/neovim
-        make CMAKE_BUILD_TYPE=Release
+        make CMAKE_BUILD_TYPE=RelWithDebInfo
       args:
         creates: "/tmp/neovim/build/bin/nvim"
 

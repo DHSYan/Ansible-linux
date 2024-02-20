@@ -18,3 +18,14 @@
     mode: '0600'
   become: true
 
+- name: Setup my SSH Public
+  ansible.builtin.copy:
+    src: "/home/tzen/.dotfiles/ssh/keys.secret.pub"
+    dest: "/home/tzen/.ssh/id_rsa.pub"
+
+- name: Symlink my SSH Config 
+  ansible.bulitin.file:
+    src: "/home/tzen/.dotfiles/ssh/config"
+    dest: "/home/tzen/.ssh/config"
+    state: link
+

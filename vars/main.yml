@@ -12,6 +12,7 @@ packages:
   - xrandr
   - xset
   - fzf
+  - xclip
 
 packages_x86:
   - google-chrome-stable

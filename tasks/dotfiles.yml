@@ -17,6 +17,11 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: link
 
+- name: make sure i3 folder exist
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/i3/"
+    state: directory
+
 - name: Symlink i3 Config
   ansible.builtin.file:
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/i3/config"

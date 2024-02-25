@@ -45,3 +45,14 @@
   package:
     name: "{{ neovim_dependencies }}"
     state: latest
+
+- name: Enable Wezterm in Copr
+  community.general.copr:
+    name: wezfurlong/wezterm-nightly
+    state: enabled
+
+- name: Install Wezterm
+  package: 
+    name: "wezterm"
+    state: latest
+

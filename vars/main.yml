@@ -8,6 +8,7 @@ packages:
   - zsh
   - ripgrep
   - fedora-workstation-repositories
+  - copr-cli
 
 packages_x86:
   - google-chrome-stable
@@ -23,7 +24,6 @@ neovim_dependencies:
 
 flathub_packages:
   - com.brave.Browser
-  - org.wezfurlong.wezterm
   - md.obsidian.Obsidian
 
 flathub_packages_x86:

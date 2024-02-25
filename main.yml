@@ -1,5 +1,5 @@
 ---
-- name: Fedora Setup With Sway Wayland
+- name: Fedora Setup
   hosts: all
   gather_facts: yes
   become: yes

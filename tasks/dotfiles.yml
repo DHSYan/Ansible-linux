@@ -40,3 +40,4 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/sway/config"
     state: link
   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
+

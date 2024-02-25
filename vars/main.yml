@@ -11,6 +11,7 @@ packages:
   - copr-cli
   - xrandr
   - xset
+  - fzf
 
 packages_x86:
   - google-chrome-stable

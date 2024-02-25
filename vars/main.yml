@@ -9,6 +9,7 @@ packages:
   - ripgrep
   - fedora-workstation-repositories
   - copr-cli
+  - xrandr
 
 packages_x86:
   - google-chrome-stable

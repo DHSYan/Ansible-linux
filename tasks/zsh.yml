@@ -1,2 +1,9 @@
 ---
-name: ZSH Configuration
+- name: ensure ZSH is default shell
+  become: true
+  user:
+    # name: "{{ ansible_user_id }}" 
+    name: "tzen" 
+    state: present
+    shell: "/bin/zsh"
+

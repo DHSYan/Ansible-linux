@@ -1,0 +1,6 @@
+---
+- name: Make sure Throw-away-code dir exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/throw-away-code" 
+    state: directory
+

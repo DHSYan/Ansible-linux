@@ -41,3 +41,15 @@
     state: link
   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
 
+
+# - name: make sure zsh folder exist
+#   ansible.builtin.file:
+#     path: "{{ lookup('env', 'HOME') }}/.config/zsh/"
+#     state: directory
+
+- name: Symlink my zshrc to home
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/zsh/.zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
+    state: link
+

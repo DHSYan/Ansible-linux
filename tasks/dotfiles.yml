@@ -1,14 +1,49 @@
 ---
+- name: make sure zsh folder exist
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/zsh/"
+    state: directory
+
+- name: Insert the ZDOTDIR Assignment
+  lineinfile:
+    path: "/etc/zshenv"
+    line: 'ZDOTDIR="$HOME/.config/zsh"'
+    state: present
+    create: yes
+
+- name: Symlink my zshrc to ZDOTDIR
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/zsh/.zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/.zshrc"
+    state: link
+
+- name: Symlink my zshenv to ZDOTDIR
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/zsh/.zshenv"
+    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/.zshenv"
+    state: link
+
+- name: Symlink my zsh_function to ZDOTDIR
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/zsh/zsh-functions"
+    dest: "{{ lookup('env', 'HOME') }}/.config/zsh/zsh-functions"
+    state: link
+
+- name: make sure git folder exist
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/git/"
+    state: directory
+    
 - name: Setup Git config
   ansible.builtin.file:
-    src: "/home/tzen/.dotfiles/Git/.gitconfig"
-    dest: "/home/tzen/.gitconfig"
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/Git/config"
+    dest: "{{ lookup('env', 'HOME') }}/.config/git/config"
     state: link
 
 - name: Setup Git Ignore_global
   ansible.builtin.file:
-    src: "/home/tzen/.dotfiles/Git/.gitignore_global"
-    dest: "/home/tzen/.gitignore_global"
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/Git/.gitignore_global"
+    dest: "{{ lookup('env', 'HOME') }}/.config/git/.gitignore_global"
     state: link
 
 - name: SymLink Neovim
@@ -40,16 +75,4 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/sway/config"
     state: link
   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
-
-
-# - name: make sure zsh folder exist
-#   ansible.builtin.file:
-#     path: "{{ lookup('env', 'HOME') }}/.config/zsh/"
-#     state: directory
-
-- name: Symlink my zshrc to home
-  file:
-    src: "{{ lookup('env', 'HOME') }}/.dotfiles/zsh/.zshrc"
-    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
-    state: link
 

@@ -7,3 +7,11 @@
     state: present
     shell: "/bin/zsh"
 
+# - name: Check if zap already exist
+#   stat: 
+#     path: "{{ ansible_env.HOME }}/.local/share/zap"
+#   register: zap_exist_stat
+#
+# - name: Install zap if the regitester didn't exsit
+#   shell: "zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) - branch release-v1"
+#   when: zap_exist_stat.stat.exists

@@ -10,6 +10,7 @@ packages:
   - fedora-workstation-repositories
   - copr-cli
   - xrandr
+  - xset
 
 packages_x86:
   - google-chrome-stable

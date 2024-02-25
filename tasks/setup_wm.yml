@@ -1,0 +1,13 @@
+--- 
+- name: Install Sway (Wayland session)
+  package:
+    name: sway
+    state: present
+  when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
+
+- name: Install i3 (X11 session)
+  package:
+    name: i3
+    state: present
+  when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'x11'
+

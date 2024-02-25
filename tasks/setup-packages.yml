@@ -1,23 +1,14 @@
 ---
 - name: Update all packages to the latest version
-  dnf:
+  package:
     name: "*"
-    state: latest
-
-# To get Google Working
-- name: Install fedora-workstation-repositories
-  dnf:
-    name: fedora-workstation-repositories
     state: latest
 
 # Flatpak and Discord
 - name: Install Flatpak
-  dnf:
+  package:
     name: flatpak
     state: latest
-
-# - name: wayland flatpak opt-in Discord
-#   command: flatpak override --user --socket=wayland com.discordapp.Discord
 
 - name: Add the Flathub repository
   flatpak_remote:
@@ -25,34 +16,32 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install Discord via Flatpak
-  community.general.flatpak:
-    name: com.discordapp.Discord
-    state: present
-    remote: flathub
-  when: ansible_architecture == "x86_64"
-
-- name: Install Spotify via Flatpak if x86
-  community.general.flatpak:
-    name: com.spotify.Client
-    state: present
-    remote: flathub
-  when: ansible_architecture == "x86_64"
-
-- name: Install Flathub Packages that runs on both Architecture
+- name: Install Flathub Packages
   community.general.flatpak:
     name: "{{ item }}"
     state: present
     remote: flathub
   loop: "{{ flathub_packages }}"
 
+- name: Install flathub Packages that runs on only x86
+  community.general.flatpak:
+    name: "{{ flathub_packages_x86 }}"
+    state: present
+    remote: flathub
+  when: ansible_architecture == "x86_64"
 
 - name: Install required packages
-  dnf:
+  package:
     name: "{{ packages }}"
     state: latest
 
+- name: Install required packages when on x86
+  package:
+    name: "{{ packages_x86 }}"
+    state: latest
+  when: ansible_architecture == "x86_64"
+
 - name: Install Neovim dependencies
-  dnf:
+  package:
     name: "{{ neovim_dependencies }}"
     state: latest

@@ -1,13 +1,16 @@
 ---
 packages:
-  - chromium #Google Chrome Stable Don't really want to work on fedora
+  - chromium #Google Chrome Stable Don't really want to work on fedora arm
   - flameshot
   - stow
   - tmux
   - feh
-  - sway
   - zsh
   - ripgrep
+  - fedora-workstation-repositories
+
+packages_x86:
+  - google-chrome-stable
 
 neovim_dependencies:
   - ninja-build
@@ -23,3 +26,7 @@ flathub_packages:
   - org.wezfurlong.wezterm
   - md.obsidian.Obsidian
 
+flathub_packages_x86:
+  # - com.google.Chrome
+  - com.discordapp.Discord
+  - com.spotify.Client

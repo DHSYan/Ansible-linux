@@ -87,3 +87,20 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/sxhkd/sxhkdrc"
     dest: "{{ lookup('env', 'HOME') }}/.config/sxhkd/sxhkdrc"
     state: link
+
+
+
+- name: make sure tmux folder exist
+  become: no
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/tmux/"
+    state: directory
+
+# need to clone the TPM THINGY
+# gotta figure out how to let ansible if dir exist, dont run
+
+- name: SymLink tmux.conf
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux/.tmux.conf"
+    dest: "{{ lookup('env', 'HOME') }}/.config/tmux/tmux.conf"
+    state: link

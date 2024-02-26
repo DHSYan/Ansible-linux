@@ -13,6 +13,9 @@ packages:
   - xset
   - fzf
   - xclip
+  - xev
+  - dolphin
+
 
 packages_x86:
   - google-chrome-stable

@@ -76,3 +76,14 @@
     state: link
   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
 
+- name: make sure sxhkd folder exist
+  become: no
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/sxhkd/"
+    state: directory
+
+- name: SymLink sxhkdrc
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/sxhkd/sxhkdrc"
+    dest: "{{ lookup('env', 'HOME') }}/.config/sxhkd/sxhkdrc"
+    state: link

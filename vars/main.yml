@@ -14,7 +14,7 @@ packages:
   - fzf
   - xclip
   - xev
-  - dolphin
+  - sxhkd
 
 
 packages_x86:

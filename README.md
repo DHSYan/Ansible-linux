@@ -55,3 +55,11 @@ A large portion of this project was made by Chat GPT.
 
 
 # Archetiure Matters
+
+
+# TODO 
+
+`xrandr --output eDP-1 --brightness .5`
+  - this sets the screen brightness to 50%
+  - I should use skhd to map this command to some keybind 
+

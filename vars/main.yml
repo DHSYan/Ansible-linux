@@ -15,6 +15,7 @@ packages:
   - xclip
   - xev
   - sxhkd
+  - zathura
 
 
 packages_x86:

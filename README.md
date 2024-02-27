@@ -56,7 +56,12 @@ A large portion of this project was made by Chat GPT.
 
 # Archetiure Matters
 
-
+# Latex
+```
+sudo dnf install 'tex(beamer.cls)' 
+sudo dnf install 'tex(hyperref.sty)'
+```
+- Is how you install indivisual packages
 # TODO 
 
 `xrandr --output eDP-1 --brightness .5`

@@ -16,6 +16,8 @@ packages:
   - xev
   - sxhkd
   - zathura
+  - latexmk
+  - texlive-scheme-full
 
 
 packages_x86:

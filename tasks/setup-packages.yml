@@ -1,14 +1,17 @@
 ---
 - name: Update all packages to the latest version
+  become: yes
   package:
     name: "*"
     state: latest
 
 # Flatpak and Discord
-- name: Install Flatpak
-  package:
-    name: flatpak
-    state: latest
+# - name: Install Flatpak 
+#   become: yes
+#   package:
+#     name: flatpak
+#     state: latest
+# Flatpak is installed by default
 
 - name: Add the Flathub repository
   flatpak_remote:
@@ -31,17 +34,20 @@
   when: ansible_architecture == "x86_64"
 
 - name: Install required packages
+  become: yes
   package:
     name: "{{ packages }}"
     state: latest
 
 - name: Install required packages when on x86
+  become: yes
   package:
     name: "{{ packages_x86 }}"
     state: latest
   when: ansible_architecture == "x86_64"
 
 - name: Install Neovim dependencies
+  become: yes
   package:
     name: "{{ neovim_dependencies }}"
     state: latest
@@ -56,11 +62,11 @@
     name: "wezterm"
     state: latest
 
-- name: Install Sway (Wayland session)
-  package:
-    name: sway
-    state: present
-  when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
+# - name: Install Sway (Wayland session)
+#   package:
+#     name: sway
+#     state: present
+#   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
 
 - name: Install i3 (X11 session)
   package:

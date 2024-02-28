@@ -8,26 +8,26 @@
 
 - name: make sure .ssh folder exist
   ansible.builtin.file:
-    path: "/home/tzen/.ssh"
+    path: "{{ lookup('env', HOME') }}/.ssh"
     state: directory
 
 - name: Setup my SSH Private
   ansible.builtin.copy:
-    dest: "/home/tzen/.ssh/id_rsa"
-    content: "{{ lookup('ansible.builtin.file', '/home/tzen/.dotfiles/ssh/keys.secret', decrypt=true) }}"
-  become: true
+    dest: "{{ lookup('env', HOME') }}/.ssh/main"
+    # content: "{{ lookup('ansible.builtin.file', '/home/tzen/.dotfiles/ssh/keys.secret', decrypt=true) }}"
+    src: "{{ lookup('env', HOME') }}/.dotfiles/ssh/main"
+  # become: false
 
 - name: Setup my SSH Public
   ansible.builtin.copy:
-    src: "/home/tzen/.dotfiles/ssh/keys.secret.pub"
-    dest: "/home/tzen/.ssh/id_rsa.pub"
+    dest: "{{ lookup('env', HOME') }}/.ssh/main.pub"
+    src: "{{ lookup('env', HOME') }}/.dotfiles/ssh/main.pub"
 
 - name: Symlink my SSH Config 
   ansible.builtin.file:
-    src: "/home/tzen/.dotfiles/ssh/config"
-    dest: "/home/tzen/.ssh/config"
+    dest: "{{ lookup('env', HOME') }}/.ssh/config"
+    src: "{{ lookup('env', HOME') }}/.dotfiles/ssh/config"
     state: link
-
 
 - name: change the github .dotfiles to use SSH
   ansible.builtin.shell:

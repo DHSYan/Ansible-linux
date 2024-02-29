@@ -53,11 +53,13 @@
     state: latest
 
 - name: Enable Wezterm in Copr
+  become: yes
   community.general.copr:
     name: wezfurlong/wezterm-nightly
     state: enabled
 
 - name: Install Wezterm
+  become: yes
   package: 
     name: "wezterm"
     state: latest
@@ -69,6 +71,7 @@
 #   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
 
 - name: Install i3 (X11 session)
+  become: yes
   package:
     name: i3
     state: present

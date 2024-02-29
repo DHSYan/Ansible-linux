@@ -18,6 +18,7 @@ packages:
   - zathura
   - latexmk
   - texlive-scheme-full
+  - xinput
 
 
 packages_x86:

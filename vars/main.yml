@@ -19,7 +19,11 @@ packages:
   - latexmk
   - texlive-scheme-full
   - xinput
-
+  - tldr
+  - libX11-devel
+  - libXft-devel 
+  - libXinerama-devel
+    # I figured out these were the depen thanks to @DabideBoi
 
 packages_x86:
   - google-chrome-stable

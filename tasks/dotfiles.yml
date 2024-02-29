@@ -103,3 +103,15 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux/.tmux.conf"
     dest: "{{ lookup('env', 'HOME') }}/.config/tmux/tmux.conf"
     state: link
+
+- name: Symlink x11 .Xresources
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/x11/.Xresources"
+    dest: "{{ lookup('env', 'HOME') }}/.Xresources"
+    state: link
+
+- name: Symlink x11 .xinitrc
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.dotfiles/x11/.xinitrc"
+    dest: "{{ lookup('env', 'HOME') }}/.xinitrc"
+    state: link

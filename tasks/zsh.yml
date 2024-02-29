@@ -7,6 +7,11 @@
     state: present
     shell: "/bin/zsh"
 
+- name: create the .zsh_history file in ./config/zsh
+  file: 
+    path: "{{ lookup('env', 'ZDOTDIR') }}/.zsh_history"
+    state: touch
+
 # - name: Check if zap already exist
 #   stat: 
 #     path: "{{ ansible_env.HOME }}/.local/share/zap"

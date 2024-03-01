@@ -24,6 +24,7 @@ packages:
   - libXft-devel 
   - libXinerama-devel
     # I figured out these were the depen thanks to @DabideBoi
+  - racket
 
 packages_x86:
   - google-chrome-stable

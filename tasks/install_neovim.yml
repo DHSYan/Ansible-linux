@@ -4,20 +4,20 @@
     - name: Clone Neovim repo
       ansible.builtin.git:
         repo: 'https://github.com/neovim/neovim.git'
-        dest: '/tmp/neovim'
+        dest: "{{ lookup('env', 'HOME') }}/repo/neovim"
         clone: yes
         update: yes
 
     - name: Build Neovim
       ansible.builtin.shell: |
-        cd /tmp/neovim
+        cd $HOME/repo/neovim
         make CMAKE_BUILD_TYPE=RelWithDebInfo
       args:
-        creates: "/tmp/neovim/build/bin/nvim"
+        creates: "{{ lookup('env', 'HOME') }}/repo/neovim/build/bin/nvim"
 
     - name: Install Neovim
       ansible.builtin.shell: |
-        cd /tmp/neovim
+        cd $HOME/repo/neovim
         make install
       args:
         creates: "/usr/local/bin/nvim"

@@ -25,6 +25,7 @@ packages:
   - libXinerama-devel
     # I figured out these were the depen thanks to @DabideBoi
   - racket
+  - neofetch
 
 packages_x86:
   - google-chrome-stable
@@ -41,6 +42,7 @@ neovim_dependencies:
 flathub_packages:
   - com.brave.Browser
   - md.obsidian.Obsidian
+  - com.github.xournalpp.xournalpp
 
 flathub_packages_x86:
   # - com.google.Chrome

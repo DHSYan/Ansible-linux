@@ -6,12 +6,13 @@
   vars_files:
     - vars/main.yml
   tasks:
+    - import_tasks: tasks/misc.yml
     - import_tasks: tasks/setup-packages.yml
-    - import_tasks: tasks/install_neovim.yml
-    - import_tasks: tasks/setup-ssh.yml
+      # - import_tasks: tasks/install_neovim.yml
+    # - import_tasks: tasks/setup-ssh.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/zsh.yml
-    - import_tasks: tasks/misc.yml
+    - import_tasks: tasks/setup-fonts.yml
   handlers:
     - import_tasks: handlers/main.yml
 

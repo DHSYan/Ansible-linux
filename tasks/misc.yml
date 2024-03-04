@@ -4,3 +4,7 @@
     path: "{{ lookup('env', 'HOME') }}/throw-away-code" 
     state: directory
 
+- name: Make sure repo dir exist
+  file:
+    path: "{{ lookup('env', 'HOME') }}/repo" 
+    state: directory

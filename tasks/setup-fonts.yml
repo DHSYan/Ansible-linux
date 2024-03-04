@@ -1,0 +1,24 @@
+---
+- name: Ensure fonts Directory
+  file: 
+    path: "{{ lookup('env', 'HOME') }}/.fonts"
+    state: directory
+
+- name: Hermit Nerd Font Exists
+  shell: "ls {{ lookup('env', 'HOME')}}/.fonts/Hermit"
+  register: hermit_exists
+  ignore_errors: yes
+
+- name: Setup Hermit
+  when: hermit_exists is failed
+  block: 
+    - name: Create the folder for hermit
+      file: 
+        path: "{{ lookup('env', 'HOME') }}/.fonts/Hermit"
+        state: directory
+
+    - name: Download Hermit
+      unarchive:
+        src: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hermit.tar.xz"
+        dest: "{{ lookup('env', 'HOME') }}/.fonts/Hermit"
+        remote_src: yes

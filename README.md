@@ -75,3 +75,7 @@ if the Ansible-linux has changes.  This will make sure whatever is on my PC
 will be on the other.
 
 Install Fonts
+
+- Weylus
+- Lorien (Infinite Canvas Thing)
+

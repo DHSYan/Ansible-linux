@@ -26,6 +26,8 @@ packages:
     # I figured out these were the depen thanks to @DabideBoi
   - racket
   - neofetch
+  - ibus
+  - ibus-libpinyin
 
 packages_x86:
   - google-chrome-stable

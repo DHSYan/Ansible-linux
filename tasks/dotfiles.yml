@@ -75,7 +75,7 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/i3/config"
     dest: "{{ lookup('env', 'HOME') }}/.config/i3/config"
     state: link
-  when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'x11'
+      #when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'x11'
 
 - name: make sure sxhkd folder exist
   become: no

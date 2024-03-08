@@ -77,18 +77,6 @@
     state: link
   when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'x11'
 
-- name: make sure sway folder exist
-  ansible.builtin.file:
-    path: "{{ lookup('env', 'HOME') }}/.config/sway/"
-    state: directory
-
-- name: Symlink wayland Config
-  ansible.builtin.file:
-    src: "{{ lookup('env', 'HOME') }}/.dotfiles/sway/config"
-    dest: "{{ lookup('env', 'HOME') }}/.config/sway/config"
-    state: link
-  when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'wayland'
-
 - name: make sure sxhkd folder exist
   become: no
   ansible.builtin.file:

@@ -57,12 +57,15 @@
   community.general.copr:
     name: wezfurlong/wezterm-nightly
     state: enabled
+  ignore_errors: yes
+
 
 - name: Install Wezterm
   become: yes
   package: 
     name: "wezterm"
     state: latest
+  ignore_errors: yes
 
 # - name: Install Sway (Wayland session)
 #   package:
@@ -75,4 +78,4 @@
   package:
     name: i3
     state: present
-  when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'x11'
+  # when: lookup('ansible.builtin.env', 'XDG_SESSION_TYPE') == 'x11'

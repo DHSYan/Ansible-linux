@@ -1,27 +1,9 @@
 ---
-- name: clone my .dotfiles to get ssh keys
-  ansible.builtin.git:
-    repo: 'https://github.com/DHSYan/.dotfiles.git'
-    dest: '/home/tzen/.dotfiles'
-    clone: yes
-    update: yes
-
 - name: make sure .ssh folder exist
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.ssh"
     state: directory
 
-- name: Setup my SSH Private
-  ansible.builtin.copy:
-    dest: "{{ lookup('env', 'HOME') }}/.ssh/main"
-    # content: "{{ lookup('ansible.builtin.file', '/home/tzen/.dotfiles/ssh/keys.secret', decrypt=true) }}"
-    src: "{{ lookup('env', 'HOME') }}/.dotfiles/ssh/main"
-  # become: false
-
-- name: Setup my SSH Public
-  ansible.builtin.copy:
-    dest: "{{ lookup('env', 'HOME') }}/.ssh/main.pub"
-    src: "{{ lookup('env', 'HOME') }}/.dotfiles/ssh/main.pub"
 
 - name: Symlink my SSH Config 
   ansible.builtin.file:
@@ -29,7 +11,3 @@
     src: "{{ lookup('env', 'HOME') }}/.dotfiles/ssh/config"
     state: link
 
-- name: change the github .dotfiles to use SSH
-  ansible.builtin.shell:
-    cmd: "git remote set-url origin git@github.com:DHSYan/.dotfiles.git"
-    chdir: "/home/tzen/.dotfiles"

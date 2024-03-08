@@ -28,6 +28,7 @@ packages:
   - neofetch
   - ibus
   - ibus-libpinyin
+  - libfido2-devel #for yubi key
 
 packages_x86:
   - google-chrome-stable

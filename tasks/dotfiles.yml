@@ -1,4 +1,16 @@
 ---
+- name: clone my .dotfiles
+  ansible.builtin.git:
+    repo: 'https://github.com/DHSYan/.dotfiles.git'
+    dest: '/home/tzen/.dotfiles'
+    clone: yes
+    update: yes
+
+- name: change the github .dotfiles to use SSH
+  ansible.builtin.shell:
+    cmd: "git remote set-url origin git:DHSYan/.dotfiles.git"
+    chdir: "/home/tzen/.dotfiles"
+
 - name: make sure zsh folder exist
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.config/zsh/"

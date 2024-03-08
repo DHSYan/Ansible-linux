@@ -29,6 +29,7 @@ packages:
   - ibus
   - ibus-libpinyin
   - libfido2-devel #for yubi key
+  - xorg-x11-server-Xorg
 
 packages_x86:
   - google-chrome-stable

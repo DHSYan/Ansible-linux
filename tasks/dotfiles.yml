@@ -22,6 +22,7 @@
     line: 'ZDOTDIR="$HOME/.config/zsh"'
     state: present
     create: yes
+  become: yes
 
 - name: Symlink my zshrc to ZDOTDIR
   file:

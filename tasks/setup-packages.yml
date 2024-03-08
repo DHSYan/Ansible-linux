@@ -59,13 +59,19 @@
     state: enabled
   ignore_errors: yes
 
-
 - name: Install Wezterm
   become: yes
   package: 
     name: "wezterm"
     state: latest
   ignore_errors: yes
+
+- name: Install wezterm on flathub if on aarch64
+  community.general.flatpak:
+    name: "org.wezfurlong.wezterm"
+    state: present
+    remote: flathub
+  when: ansible_architecture == "aarch64"
 
 # - name: Install Sway (Wayland session)
 #   package:

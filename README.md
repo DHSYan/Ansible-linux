@@ -81,3 +81,5 @@ Install Fonts
 
 
 - TPM
+
+- Install DWM

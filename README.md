@@ -82,4 +82,6 @@ Install Fonts
 
 - TPM
 
-- Install DWM
+- [x] Install DWM
+  - [ ] Make it apart of the script
+  - [ ] Make sure that the Dwm-bar is cloned

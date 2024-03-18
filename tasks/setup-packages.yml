@@ -46,6 +46,12 @@
     state: latest
   when: ansible_architecture == "x86_64"
 
+- name: Install Snapd Packages
+  become: yes
+  snap:
+    name: "{{ snap_packages }}"
+    state: present
+
 - name: Install Neovim dependencies
   become: yes
   package:

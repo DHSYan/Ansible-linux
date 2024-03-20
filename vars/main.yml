@@ -35,6 +35,11 @@ packages:
 
 packages_x86:
   - google-chrome-stable
+  - xsetroot
+  - snapd
+
+snap_packages:
+  - spotify
 
 neovim_dependencies:
   - ninja-build

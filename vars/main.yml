@@ -31,6 +31,7 @@ packages:
   - libfido2-devel #for yubi key
   - xorg-x11-server-Xorg
   - fuse-sshfs
+  - clang
 
 packages_x86:
   - google-chrome-stable
